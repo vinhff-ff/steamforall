@@ -1,5 +1,4 @@
 import imgMain from "../../assets/imgMain.jpg";
-import logo from "../../assets/logo.png";
 import game from "../../assets/game.png";
 import map from "../../assets/map.png";
 import schedule from "../../assets/schele.png";
