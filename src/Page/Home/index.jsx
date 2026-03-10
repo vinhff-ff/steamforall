@@ -4,14 +4,15 @@ import map from "../../assets/map.png";
 import schedule from "../../assets/schele.png";
 import speed from "../../assets/speed.png";
 import banner from "../../assets/banner.png";
+import BtnCustom from "../../Custom/btn";
 
 const Home = () => {
   const menus = [
-    { img: speed, title: "Level-based Learning" },
-    { img: schedule, title: "Monthly Treasure Map" },
-    { img: map, title: "Weekly Quests" },
-    { img: banner, title: "Learning Tavern" },
-    { img: game, title: "Arcade Room" },
+    { img: speed, title: "Học tập theo cấp độ" },
+    { img: schedule, title: "Bản đồ kho báu hàng tháng" },
+    { img: map, title: "Nhiệm vụ hàng tuần" },
+    { img: banner, title: "Quán rượu học tập" },
+    { img: game, title: "Phòng trò chơi điện tử" },
   ];
 
   return (
@@ -23,8 +24,8 @@ const Home = () => {
         </div>
 
         <div className="home-actions">
-          <button className="btn-contact">Contact</button>
-          <button className="btn-surtell">Surtell</button>
+          <BtnCustom className="btn-surtell" text="Đăng kí" />
+          <BtnCustom className="btn-surtell" text="Đăng nhập" />
         </div>
       </div>
 
