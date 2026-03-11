@@ -86,8 +86,13 @@
   }
 
   &:hover {
-    transform: translateY(-5px);
+    transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: translateY(-3px);
+    box-shadow: 0 2px 0 #cfcfcf, 0 3px 6px rgba(0, 0, 0, 0.15);
   }
 }
 
@@ -118,25 +123,11 @@
     padding: 18px;
   }
 
-  .menu-card {
-
-    padding: 15px;
-
-    img {
-      width: 45px;
-      height: 45px;
-    }
-
-    p {
-      font-size: 13px;
-    }
-
-  }
 
 }
 
 
-/* HEADER */
+
 
 .home-header {
   position: absolute;
