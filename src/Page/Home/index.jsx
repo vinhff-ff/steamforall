@@ -25,8 +25,8 @@ const Home = () => {
         </div>
 
         <div className="home-actions">
-          <BtnCustom className="btn-surtell" text="Đăng kí" />
-          <BtnCustom className="btn-surtell" text="Đăng nhập" />
+          <BtnCustom className="btn-surtell" text="Đăng nhập" onClick={()=> navigate('/login')}/>
+          <BtnCustom className="btn-surtell" text="Liên hệ" onClick={()=> navigate('/contact')}/>
         </div>
       </div>
 
