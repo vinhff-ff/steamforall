@@ -15,6 +15,7 @@ function App() {
       <Route path="/login" element={<LoginPanel />} />
       <Route path="/register" element={<RegisterPanel />} />
       <Route path="/treasure" element={<Map />} />
+      <Route path="/contact" element={<Contact />} />
     </Routes>
   );
 }

@@ -7,11 +7,12 @@ export default function DienDanPage() {
   const navigate = useNavigate()
   return (
     <div className="forum-page" style={{ backgroundImage: `url(${bgWhite})` }}>
-      <button class="btn-back" onClick={()=> navigate('/')}>
+      <button class="btn-back" onClick={() => navigate('/')}>
         <span></span>
       </button>
 
-      <img src={dienDan} className="forum-banner" />
+      <img src={dienDan} alt="dien dan banner" className="forum-banner" />
+
 
       <div className="forum-content" >
 
@@ -30,7 +31,7 @@ export default function DienDanPage() {
         </div>
 
         <div className="forum-map">
-          <img src={mapNotfound} />
+          <img src={mapNotfound} alt="map not found" />
         </div>
 
       </div>
