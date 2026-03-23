@@ -490,6 +490,10 @@ const GearSVG = ({ className }) => (
 );
 
 function MapNode({ node, svgWidth, svgHeight }) {
+  const [hovered, setHovered] = useState(false);
+
+  const px = (node.x / 100) * svgWidth;
+  const py = (node.y / 100) * svgHeight;
 
   const nodeClass = [
     "node-btn",
