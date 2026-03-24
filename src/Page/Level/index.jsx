@@ -798,7 +798,7 @@ export default function LearningPage() {
           <div className="lp-topbar">
             <div className="lp-topbar-left">
               <span className="lp-logo">Whisker</span>
-              <span className="lp-week-chip">📅 Tháng 3 · 2026</span>
+              <span className="lp-week-chip">📅 Tháng 4 · 2026</span>
             </div>
             <div style={{ display: "flex", gap: 8 }}>
               {view === "courses" && (
