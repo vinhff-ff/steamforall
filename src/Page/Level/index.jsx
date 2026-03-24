@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 /* ─────────────────────────────────────────────
    STYLES
 ───────────────────────────────────────────── */
@@ -532,19 +532,19 @@ const LEVELS = [
   {
     id: "cap1", label: "Cấp 1", icon: "🌱", emoji: "🌱",
     bg: "linear-gradient(135deg,#43b89c,#2d8a6e)",
-    grades: [1,2,3,4,5],
+    grades: [1,2,3,4,5,6,7,8,9,10,11,12],
     desc: "Tiểu học · Lớp 1–5",
   },
   {
     id: "cap2", label: "Cấp 2", icon: "📚", emoji: "📚",
     bg: "linear-gradient(135deg,#4facfe,#0072ff)",
-    grades: [6,7,8,9],
+    grades: [1,2,3,4,5,6,7,8,9,10,11,12],
     desc: "THCS · Lớp 6–9",
   },
   {
     id: "cap3", label: "Cấp 3", icon: "🎓", emoji: "🎓",
     bg: "linear-gradient(135deg,#c471ed,#7b5ee8)",
-    grades: [10,11,12],
+    grades: [1,2,3,4,5,6,7,8,9,10,11,12],
     desc: "THPT · Lớp 10–12",
   },
 ];
@@ -610,9 +610,10 @@ const COURSES_BY_GRADE = {
    COMPONENT: Grade Card
 ───────────────────────────────────────────── */
 function GradeCard({ grade, levelBg, onClick, delay }) {
+  const navigate = useNavigate()
   const courses = COURSES_BY_GRADE[grade] || [];
   return (
-    <div className="grade-card"  style={{ animationDelay: delay }}>
+    <div className="grade-card" onClick={()=> navigate('/notfound')} style={{ animationDelay: delay }} on>
       <GearSVG className="gc gc-tl" /><GearSVG className="gc gc-tr" />
       <GearSVG className="gc gc-bl" /><GearSVG className="gc gc-br" />
       <div className="grade-num">{grade}</div>

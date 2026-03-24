@@ -10,6 +10,7 @@ import Map from './Page/Map/index.jsx';
 import Mission from './Page/Mission/index.jsx';
 import Game from './Page/Game/index.jsx';
 import Level from './Page/Level/index.jsx';
+import Notfound from './Page/Notfound/index.jsx';
 function App() {
   return (
     <Routes>
@@ -22,6 +23,7 @@ function App() {
       <Route path="/mission" element={<Mission />} />
       <Route path="/game" element={<Game />} />
       <Route path="/level" element={<Level />} />
+      <Route path="/notfound" element={<Notfound />} />
     </Routes>
   );
 }
