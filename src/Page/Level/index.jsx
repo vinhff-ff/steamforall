@@ -612,11 +612,11 @@ const COURSES_BY_GRADE = {
 function GradeCard({ grade, levelBg, onClick, delay }) {
   const courses = COURSES_BY_GRADE[grade] || [];
   return (
-    <div className="grade-card" onClick={onClick} style={{ animationDelay: delay }}>
+    <div className="grade-card"  style={{ animationDelay: delay }}>
       <GearSVG className="gc gc-tl" /><GearSVG className="gc gc-tr" />
       <GearSVG className="gc gc-bl" /><GearSVG className="gc gc-br" />
       <div className="grade-num">{grade}</div>
-      <div className="grade-label">Lớp {grade}</div>
+      <div className="grade-label">Tháng {grade}</div>
       <div className="grade-count">{courses.length} môn học</div>
     </div>
   );

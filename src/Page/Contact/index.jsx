@@ -328,7 +328,7 @@ export default function ContactPage() {
           <div className="contact-left">
             <h1>Liên hệ với chúng tôi</h1>
             <p>
-              Tại Steamedu, chúng tôi luôn sẵn sàng một đảo trả đảo cố đấm năng
+              Tại Whisker, chúng tôi luôn sẵn sàng một đảo trả đảo cố đấm năng
               sang với vô hen. SB mệnh của những thi in cang các cáo công vụ,
               kiến thức về mọi lợt hợp đt.
             </p>
@@ -343,7 +343,7 @@ export default function ContactPage() {
                 </div>
                 <div className="info-text">
                   <span className="info-label">Địa chỉ</span>
-                  <span className="info-value">151 Hải Ninh So, Phân, Ong tín, II Yên Danh</span>
+                  <span className="info-value">Chưa cập nhật</span>
                 </div>
               </div>
 
@@ -356,7 +356,7 @@ export default function ContactPage() {
                 </div>
                 <div className="info-text">
                   <span className="info-label">Điện thoại</span>
-                  <span className="info-value">09207 576 9990</span>
+                  <span className="info-value">Chưa cập nhật</span>
                 </div>
               </div>
 
@@ -369,7 +369,7 @@ export default function ContactPage() {
                 </div>
                 <div className="info-text">
                   <span className="info-label">E-mail</span>
-                  <span className="info-value">email.steamedu@gmail.com</span>
+                  <span className="info-value">Chưa cập nhật</span>
                 </div>
               </div>
             </div>
@@ -384,7 +384,7 @@ export default function ContactPage() {
               </div>
               <div className="support-text">
                 <h4>Hỗ trợ và làm việc</h4>
-                <p>Tiêu qoô dân nlan suốc</p>
+                <p></p>
               </div>
             </div>
           </div>
