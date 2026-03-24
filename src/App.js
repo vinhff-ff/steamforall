@@ -7,6 +7,9 @@ import RegisterPanel from './Page/Login/index.jsx';
 import LoginPanel from './Page/Login/index.jsx';
 import Contact from './Page/Contact/index.jsx';
 import Map from './Page/Map/index.jsx';
+import Mission from './Page/Mission/index.jsx';
+import Game from './Page/Game/index.jsx';
+import Level from './Page/Level/index.jsx';
 function App() {
   return (
     <Routes>
@@ -16,6 +19,9 @@ function App() {
       <Route path="/register" element={<RegisterPanel />} />
       <Route path="/treasure" element={<Map />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/mission" element={<Mission />} />
+      <Route path="/game" element={<Game />} />
+      <Route path="/level" element={<Level />} />
     </Routes>
   );
 }
