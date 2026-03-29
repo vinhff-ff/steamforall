@@ -9,21 +9,21 @@ const LEVELS = [
     id: "cap1",
     label: "Cấp 1",
     icon: "🌱",
-    grades: [1, 2, 3, 4, 5],
+    grades: [1, 2, 3, 4, 5,6,7,8,9,10,11,12],
     desc: "Tiểu học · Lớp 1–5",
   },
   {
     id: "cap2",
     label: "Cấp 2",
     icon: "📚",
-    grades: [6, 7, 8, 9],
+    grades: [1, 2, 3, 4, 5,6,7,8,9,10,11,12],
     desc: "THCS · Lớp 6–9",
   },
   {
     id: "cap3",
     label: "Cấp 3",
     icon: "🎓",
-    grades: [10, 11, 12],
+    grades: [1, 2, 3, 4, 5,6,7,8,9,10,11,12],
     desc: "THPT · Lớp 10–12",
   },
 ];
@@ -84,7 +84,7 @@ const GradeCard = ({ grade, onClick, delay }) => {
       <GearSVG className="gc gc-br" />
 
       <div className="grade-num">{grade}</div>
-      <div className="grade-label">Tháng 1</div>
+      <div className="grade-label">Tháng {grade}</div>
       <div className="grade-count">Gợi ý</div>
     </div>
   );
@@ -203,7 +203,7 @@ export default function LearningPage() {
             <div className="coming-soon-content">
               <div className="coming-soon-icon">🚀</div>
               <h2>Đang phát triển</h2>
-              <p>Gợi ý cho lớp {selectedGrade} sẽ sớm ra mắt!</p>
+              <p>Gợi ý sẽ sớm ra mắt!</p>
               <button className="back-btn" onClick={handleBackToGrades}>
                 ← Quay lại chọn lớp
               </button>
