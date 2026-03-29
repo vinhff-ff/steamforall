@@ -328,9 +328,7 @@ export default function ContactPage() {
           <div className="contact-left">
             <h1>Liên hệ với chúng tôi</h1>
             <p>
-              Tại Whisker, chúng tôi luôn sẵn sàng một đảo trả đảo cố đấm năng
-              sang với vô hen. SB mệnh của những thi in cang các cáo công vụ,
-              kiến thức về mọi lợt hợp đt.
+              Tại Whisker, chúng tôi luôn sẵn sàng đồng hành và hỗ trợ bạn. Sứ mệnh của chúng tôi là cung cấp những công cụ và kiến thức toàn diện, phù hợp với mọi nhu cầu.
             </p>
 
             <div className="info-list">
