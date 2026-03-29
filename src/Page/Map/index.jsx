@@ -563,7 +563,7 @@ export default function TreasureMap() {
         <div className="tm-header">
           <h1>⚔️ Hành Trình Kho Báu ⚔️</h1>
           <p className="subtitle">Bản đồ nhiệm vụ tháng này của bạn</p>
-          <span className="month-badge">📅 Tháng 3 · 2026</span>
+          <span className="month-badge">📅 Tháng 1 · 2026</span>
         </div>
 
         {/* PROGRESS */}

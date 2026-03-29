@@ -608,16 +608,7 @@ function QuestCard({ quest, animDelay }) {
       <p className="card-desc">{quest.desc}</p>
 
       {/* Whisker Tips */}
-      {quest.tips && quest.tips.length > 0 && (
-        <div className="card-tips">
-          <div className="card-tips-label">🐱 Bí kíp của Whisker</div>
-          {quest.tips.map((tip, i) => (
-            <div key={i} className="card-tip-item">
-              <strong>{tip.label}:</strong> {tip.text}
-            </div>
-          ))}
-        </div>
-      )}
+
 
       {/* Task checklist */}
       <ul className="task-list">
@@ -678,7 +669,7 @@ export default function WeeklyQuest() {
           <div className="wq-header">
             <h1>🚀 Nhiệm Vụ Thám Hiểm Sao Hỏa</h1>
             <p className="sub">Hành trình cùng Whisker chinh phục vũ trụ</p>
-            <span className="week-badge">🌌 4 Tuần · Tháng 3 · 2026</span>
+            <span className="week-badge">🌌 4 Tuần · Tháng 1 · 2026</span>
           </div>
 
           {/* PROGRESS PANEL */}
