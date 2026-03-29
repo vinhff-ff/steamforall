@@ -12,7 +12,7 @@ const Home = () => {
     { img: speed, title: "Học tập theo cấp độ", path: "/level" },
     { img: schedule, title: "Bản đồ kho báu hàng tháng", path: "/treasure" },
     { img: map, title: "Nhiệm vụ hàng tuần", path: "/mission" },
-    { img: banner, title: "Diễn đàn học tập", path: "/notfound" },
+    { img: banner, title: "Diễn đàn học tập", path: "/dien-dan" },
     { img: game, title: "Phòng trò chơi điện tử", path: "/game" },
   ];
 

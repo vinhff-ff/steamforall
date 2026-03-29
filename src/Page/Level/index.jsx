@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
    STYLES
 ───────────────────────────────────────────── */
 const styles = `
-  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Nunito:wght@600;700;800;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap');
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {

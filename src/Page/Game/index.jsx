@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 
 const styles = `
-  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Nunito:wght@600;700;800;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap');
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -164,7 +164,6 @@ const styles = `
     pointer-events: none;
   }
 
-  /* Gear corners – purple theme */
   .pg-gear {
     position: absolute;
     width: 28px; height: 28px;
@@ -300,14 +299,12 @@ const styles = `
     80%  { transform:translateX(4px); }
   }
 
-  /* Letter pool */
   .letter-pool {
     display: flex; flex-wrap: wrap; gap: 9px;
     margin-bottom: 20px;
     min-height: 52px;
   }
 
-  /* Action buttons */
   .action-row {
     display: flex; gap: 10px; flex-wrap: wrap;
   }
@@ -381,7 +378,6 @@ const styles = `
     animation: fadeDown .6s ease .2s both;
   }
 
-  /* Quest list */
   .sidebar-panel {
     background: rgba(255,255,255,0.04);
     border: 1.5px solid rgba(255,255,255,0.1);
@@ -423,7 +419,6 @@ const styles = `
   .q-list-sub  { font-size: .68rem; font-weight: 600; color: #5566aa; }
   .q-list-status { font-size: .85rem; }
 
-  /* Reward log */
   .reward-item {
     display: flex; align-items: center; gap: 8px;
     padding: 6px 0;
@@ -497,7 +492,6 @@ const styles = `
   .btn-replay:hover { filter:brightness(1.1); }
   .btn-replay:active { transform:translateY(3px); }
 
-  /* confetti particles */
   .confetti-wrap {
     position: fixed; inset: 0; pointer-events: none; z-index: 101; overflow: hidden;
   }
@@ -519,49 +513,86 @@ const GearSVG = ({ className }) => (
   </svg>
 );
 
-// ===== DATA =====
+// ===== DATA — 4 tuần thám hiểm Sao Hỏa =====
 const QUESTIONS = [
+  // ── TUẦN 1: Mật Mã Cất Cánh & Huy Hiệu Siêu Anh Hùng ──
   {
-    id: 1, subject: "Toán", subjectColor: "#4facfe", subjectBg: "rgba(79,172,254,0.15)", icon: "📐",
-    question: "Đây là phương trình bậc hai chuẩn, điền vào chỗ trống: ax² + bx + c = ?",
-    answer: "KHONG", letters: ["K","H","O","N","G","X","M","A"],
-    hint: "Khi f(x) = 0 nghĩa là phương trình...",
+    id: 1,
+    subject: "Tuần 1 · Thiết kế", subjectColor: "#4facfe", subjectBg: "rgba(79,172,254,0.15)", icon: "🚀",
+    question: "Whisker nói: 'Để tên lửa đứng vững trên bệ phóng, bạn cần lắp thêm bộ phận nào ở đuôi tên lửa?'",
+    answer: "VAY",
+    letters: ["V","A","Y","N","G","U","O","I","T"],
+    hint: "Bí kíp kỹ thuật của Whisker: '…lắp thêm những chiếc ___ ở đuôi…'",
     reward: 80,
   },
   {
-    id: 2, subject: "Vật lý", subjectColor: "#ffd200", subjectBg: "rgba(255,210,0,0.15)", icon: "⚡",
-    question: "Định luật nào nói rằng 'Vật đứng yên thì tiếp tục đứng yên'?",
-    answer: "QUAN TINH", letters: ["Q","U","A","N","T","I","N","H","Z","E"],
-    hint: "Định luật thứ nhất của Newton còn gọi là định luật...",
+    id: 2,
+    subject: "Tuần 1 · Sáng tạo", subjectColor: "#4facfe", subjectBg: "rgba(79,172,254,0.15)", icon: "🛡",
+    question: "Huy hiệu đội bay là 'gương mặt' của đội. Bạn vẽ hình gì lên huy hiệu để thể hiện đội thật THÔNG MINH?",
+    answer: "NGOI SAO",
+    letters: ["N","G","O","I","S","A","O","K","E","R"],
+    hint: "Bí kíp sáng tạo: '…hãy vẽ một ___ ___ nhỏ ở giữa nhé!'",
+    reward: 90,
+  },
+
+  // ── TUẦN 2: Kế hoạch hạ cánh an toàn ──
+  {
+    id: 3,
+    subject: "Tuần 2 · Vật lý", subjectColor: "#38ef7d", subjectBg: "rgba(56,239,125,0.15)", icon: "🪂",
+    question: "Whisker thả giấy phẳng và giấy vo tròn. Vật nào rơi CHẬM HƠN nhờ lực cản không khí?",
+    answer: "GIAY PHANG",
+    letters: ["G","I","A","Y","P","H","N","Z","O","U"],
+    hint: "Diện tích tiếp xúc càng lớn → lực cản càng lớn → rơi càng…",
     reward: 100,
   },
   {
-    id: 3, subject: "Tiếng Anh", subjectColor: "#38ef7d", subjectBg: "rgba(56,239,125,0.15)", icon: "📖",
-    question: "Thì hiện tại hoàn thành trong tiếng Anh tên là gì?",
-    answer: "PERFECT", letters: ["P","E","R","F","C","T","A","B","I","O"],
-    hint: "Have/Has + V3, thường gặp với 'already', 'yet', 'ever'...",
-    reward: 90,
+    id: 4,
+    subject: "Tuần 2 · Kỹ thuật", subjectColor: "#38ef7d", subjectBg: "rgba(56,239,125,0.15)", icon: "🥚",
+    question: "Whisker dùng thiết bị gì làm từ túi nilon để giúp phi thuyền hạ cánh êm ái trên Sao Hỏa?",
+    answer: "DU BAY",
+    letters: ["D","U","B","A","Y","K","O","N","H","I"],
+    hint: "Bí kíp lực cản: 'Một chiếc ___ ___ khổng lồ từ túi nilon…'",
+    reward: 100,
   },
+
+  // ── TUẦN 3: Siêu xe Rover ──
   {
-    id: 4, subject: "Lập trình", subjectColor: "#c471ed", subjectBg: "rgba(196,113,237,0.15)", icon: "💻",
-    question: "Hook nào dùng để lưu trạng thái trong React?",
-    answer: "USESTATE", letters: ["U","S","E","T","A","T","E","X","W","B"],
-    hint: "const [value, setValue] = ___(...)",
-    reward: 120,
-  },
-  {
-    id: 5, subject: "Hóa học", subjectColor: "#f953c6", subjectBg: "rgba(249,83,198,0.15)", icon: "🧪",
-    question: "Phản ứng trong đó chất khử nhường electron gọi là phản ứng gì?",
-    answer: "OXI HOA", letters: ["O","X","I","H","O","A","B","C","K","L"],
-    hint: "Ngược với phản ứng khử, liên quan đến việc mất electron...",
+    id: 5,
+    subject: "Tuần 3 · Cơ học", subjectColor: "#ffd200", subjectBg: "rgba(255,210,0,0.15)", icon: "🛻",
+    question: "Để tạo nguồn năng lượng cho Rover tự chạy mà không cần pin, Whisker dùng vật liệu nào?",
+    answer: "DAY THUN",
+    letters: ["D","A","Y","T","H","U","N","K","I","O"],
+    hint: "Bí kíp năng lượng: '___ ___ càng xoắn nhiều vòng thì xe càng có nhiều thần lực!'",
     reward: 110,
   },
   {
-    id: 6, subject: "Lịch sử", subjectColor: "#f5a800", subjectBg: "rgba(245,168,0,0.15)", icon: "🏛️",
-    question: "Cách mạng Tháng Tám 1945 diễn ra vào tháng mấy?",
-    answer: "TAM", letters: ["T","A","M","N","I","L","H","K","O","E"],
-    hint: "Tên đã nói lên tất cả – số thứ tự trong năm...",
-    reward: 70,
+    id: 6,
+    subject: "Tuần 3 · Độ bám", subjectColor: "#ffd200", subjectBg: "rgba(255,210,0,0.15)", icon: "🔧",
+    question: "Để bánh xe nắp chai không bị trơn trượt trên sa mạc Sao Hỏa, Whisker quấn gì quanh bánh?",
+    answer: "DAY THUN",
+    letters: ["D","A","Y","T","H","U","N","B","C","E"],
+    hint: "Bí kíp độ bám: '…quấn thêm vài vòng ___ ___ quanh nắp chai…'",
+    reward: 90,
+  },
+
+  // ── TUẦN 4: Cánh Tay Robot ──
+  {
+    id: 7,
+    subject: "Tuần 4 · Robot", subjectColor: "#c471ed", subjectBg: "rgba(196,113,237,0.15)", icon: "🦾",
+    question: "Cánh tay robot dùng vật liệu nào để làm 'sợi gân' điều khiển ngón tay bìa cứng co duỗi?",
+    answer: "DAY CHI",
+    letters: ["D","A","Y","C","H","I","N","O","T","K"],
+    hint: "Bí kíp khớp nối: '…dùng ___ ___ xỏ qua ống hút để làm sợi gân…'",
+    reward: 120,
+  },
+  {
+    id: 8,
+    subject: "Tuần 4 · Mẹo gắp", subjectColor: "#c471ed", subjectBg: "rgba(196,113,237,0.15)", icon: "💎",
+    question: "Để đầu kẹp robot không bị trượt khi gắp 'Viên Đá Năng Lượng', Whisker dán gì vào đầu kẹp?",
+    answer: "BANG DINH",
+    letters: ["B","A","N","G","D","I","H","O","E","U"],
+    hint: "Bí kíp gắp: '…dán một chút ___ ___ hai mặt hoặc miếng nhám vào đầu kẹp…'",
+    reward: 120,
   },
 ];
 
@@ -576,7 +607,6 @@ function shuffle(arr) {
 
 const COLORS = ["#ff6b6b","#ffe066","#6ee47b","#4facfe","#c471ed","#f953c6","#38ef7d","#ffd200"];
 
-// Star component
 function Stars() {
   const stars = Array.from({ length: 60 }, (_, i) => ({
     id: i,
@@ -601,7 +631,6 @@ function Stars() {
   );
 }
 
-// Confetti
 function Confetti() {
   const pieces = Array.from({ length: 50 }, (_, i) => ({
     id: i,
@@ -628,24 +657,25 @@ function Confetti() {
 
 export default function PuzzleGame() {
   const [currentIdx, setCurrentIdx] = useState(0);
-  const [pool, setPool] = useState(() => shuffle(QUESTIONS[0].letters).map((l, i) => ({ id: `p${i}`, char: l, used: false })));
-  const [answer, setAnswer] = useState([]);
-  const [feedback, setFeedback] = useState(null); // null | "correct" | "wrong"
-  const [tileAnim, setTileAnim] = useState({}); // tileId -> "correct"|"wrong"
-  const [scores, setScores] = useState(QUESTIONS.map(() => null)); // null|true|false
-  const [totalXu, setTotalXu] = useState(0);
-  const [streak, setStreak] = useState(0);
-  const [hints, setHints] = useState(3);
-  const [showHint, setShowHint] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(60);
+  const [pool, setPool] = useState(() =>
+    shuffle(QUESTIONS[0].letters).map((l, i) => ({ id: `p${i}`, char: l, used: false }))
+  );
+  const [answer, setAnswer]       = useState([]);
+  const [feedback, setFeedback]   = useState(null);
+  const [tileAnim, setTileAnim]   = useState({});
+  const [scores, setScores]       = useState(QUESTIONS.map(() => null));
+  const [totalXu, setTotalXu]     = useState(0);
+  const [streak, setStreak]       = useState(0);
+  const [hints, setHints]         = useState(3);
+  const [showHint, setShowHint]   = useState(false);
+  const [timeLeft, setTimeLeft]   = useState(60);
   const [timerActive, setTimerActive] = useState(true);
-  const [showWin, setShowWin] = useState(false);
+  const [showWin, setShowWin]     = useState(false);
   const [rewardLog, setRewardLog] = useState([]);
   const timerRef = useRef(null);
 
   const q = QUESTIONS[currentIdx];
 
-  // Reset on question change
   useEffect(() => {
     setPool(shuffle(q.letters).map((l, i) => ({ id: `p${i}_${currentIdx}`, char: l, used: false })));
     setAnswer([]);
@@ -656,7 +686,6 @@ export default function PuzzleGame() {
     setTimerActive(true);
   }, [currentIdx]);
 
-  // Timer
   useEffect(() => {
     if (!timerActive) return;
     timerRef.current = setInterval(() => {
@@ -676,7 +705,6 @@ export default function PuzzleGame() {
 
   const fmt = (t) => `${String(Math.floor(t/60)).padStart(2,'0')}:${String(t%60).padStart(2,'0')}`;
 
-  // Move tile from pool to answer
   const pickTile = (tile) => {
     if (tile.used || feedback) return;
     const newTile = { ...tile, id: `a${tile.id}` };
@@ -684,7 +712,6 @@ export default function PuzzleGame() {
     setAnswer(a => [...a, newTile]);
   };
 
-  // Move tile from answer back to pool
   const returnTile = (tile) => {
     if (feedback) return;
     setAnswer(a => a.filter(t => t.id !== tile.id));
@@ -759,9 +786,9 @@ export default function PuzzleGame() {
 
           {/* HEADER */}
           <div className="pg-header">
-            <h1>🧩 Ghép Chữ Tri Thức</h1>
-            <p className="sub">Trò chơi học tập hàng tuần</p>
-            <span className="week-chip">📅 Tuần 4 · Tháng 3 · 2026</span>
+            <h1>🚀 Giải Mã Thám Hiểm Sao Hỏa</h1>
+            <p className="sub">Cùng Whisker chinh phục vũ trụ bằng tri thức</p>
+            <span className="week-chip">🌌 4 Tuần · Hành Trình Sao Hỏa · 2026</span>
           </div>
 
           {/* TOP ROW */}
@@ -802,7 +829,6 @@ export default function PuzzleGame() {
               <GearSVG className="pg-gear pg-gear-bl" />
               <GearSVG className="pg-gear pg-gear-br" />
 
-              {/* Meta row */}
               <div className="q-meta">
                 <span className="q-subject-badge" style={{ background: q.subjectBg, color: q.subjectColor, border: `1px solid ${q.subjectColor}44` }}>
                   {q.icon} {q.subject}
@@ -819,13 +845,10 @@ export default function PuzzleGame() {
                 <span className="q-num">Câu {currentIdx + 1}/{QUESTIONS.length}</span>
               </div>
 
-              {/* Question text */}
               <div className="q-text">{q.question}</div>
 
-              {/* Hint */}
               {showHint && <div className="q-hint">💡 {q.hint}</div>}
 
-              {/* Answer zone */}
               <div className="answer-zone" onClick={() => answer.length > 0 && returnTile(answer[answer.length - 1])}>
                 {answer.length === 0 && (
                   <span className="answer-zone-placeholder">Click chữ bên dưới để điền vào đây...</span>
@@ -842,7 +865,6 @@ export default function PuzzleGame() {
                 ))}
               </div>
 
-              {/* Letter pool */}
               <div className="letter-pool">
                 {pool.map((tile, idx) => (
                   !tile.used && (
@@ -858,10 +880,9 @@ export default function PuzzleGame() {
                 ))}
               </div>
 
-              {/* Action buttons */}
               <div className="action-row">
                 <button className="btn-check" onClick={checkAnswer} disabled={answer.length === 0 || !!feedback}>
-                  ⚔️ Kiểm tra
+                  🚀 Kiểm tra
                 </button>
                 <button className="btn-clear" onClick={clearAnswer} disabled={!!feedback}>🗑</button>
                 <button className="btn-hint" onClick={useHint} disabled={hints === 0 || showHint || !!feedback}>
@@ -869,7 +890,6 @@ export default function PuzzleGame() {
                 </button>
               </div>
 
-              {/* Feedback */}
               {feedback && (
                 <div className={`feedback ${feedback}`}>
                   {feedback === "correct"
@@ -887,9 +907,8 @@ export default function PuzzleGame() {
 
             {/* SIDEBAR */}
             <div className="sidebar">
-              {/* Quest list */}
               <div className="sidebar-panel">
-                <div className="sidebar-title">📋 Danh sách câu hỏi</div>
+                <div className="sidebar-title">🗺 Hành trình Sao Hỏa</div>
                 {QUESTIONS.map((question, i) => (
                   <div
                     key={question.id}
@@ -910,7 +929,6 @@ export default function PuzzleGame() {
                 ))}
               </div>
 
-              {/* Reward log */}
               {rewardLog.length > 0 && (
                 <div className="sidebar-panel">
                   <div className="sidebar-title">🪙 Phần thưởng gần đây</div>
@@ -928,14 +946,14 @@ export default function PuzzleGame() {
                 </div>
               )}
 
-              {/* Tips */}
               <div className="sidebar-panel" style={{ fontSize: ".75rem", color: "#5566aa", fontWeight: 700, lineHeight: 1.7 }}>
-                <div className="sidebar-title">📖 Hướng dẫn</div>
-                <p>• Click chữ để thêm vào ô trả lời</p>
-                <p>• Click chữ trong ô để bỏ ra</p>
-                <p>• 🔥 Streak x2 thưởng thêm xu</p>
+                <div className="sidebar-title">🐱 Bí kíp Whisker</div>
+                <p>• 🚀 Tuần 1: Thiết kế tên lửa & huy hiệu</p>
+                <p>• 🪂 Tuần 2: Hạ cánh an toàn trên Sao Hỏa</p>
+                <p>• 🛻 Tuần 3: Siêu xe Rover vượt sa mạc</p>
+                <p>• 🦾 Tuần 4: Cánh tay robot săn đá báu</p>
+                <p style={{ marginTop: 8, color: "#7b8ec8" }}>• 🔥 Streak x1.5 thưởng thêm xu</p>
                 <p>• 💡 Gợi ý: {hints} lần còn lại</p>
-                <p>• ⏱ Mỗi câu 60 giây</p>
               </div>
             </div>
 
@@ -943,15 +961,14 @@ export default function PuzzleGame() {
         </div>
       </div>
 
-      {/* WIN SCREEN */}
       {showWin && (
         <>
           <Confetti />
           <div className="win-screen">
             <div className="win-card">
               <span className="win-emoji">🏆</span>
-              <div className="win-title">Hoàn Thành!</div>
-              <div className="win-sub">Bạn đã chinh phục bài tập tuần này</div>
+              <div className="win-title">Sứ Mệnh Hoàn Thành!</div>
+              <div className="win-sub">Whisker và bạn đã chinh phục Sao Hỏa thành công!</div>
               <div className="win-stats">
                 <div className="win-stat-box">
                   <div className="win-stat-val">{correctCount}/{QUESTIONS.length}</div>
@@ -966,7 +983,7 @@ export default function PuzzleGame() {
                   <div className="win-stat-lbl">Điểm số</div>
                 </div>
               </div>
-              <button className="btn-replay" onClick={restart}>🔄 Chơi lại</button>
+              <button className="btn-replay" onClick={restart}>🔄 Khám phá lại</button>
             </div>
           </div>
         </>

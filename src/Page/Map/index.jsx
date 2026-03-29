@@ -1,8 +1,7 @@
 import { useState } from "react";
 
 const styles = `
-  @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Nunito:wght@600;700;800;900&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Nunito:wght@600;700;800;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap');
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -485,7 +484,7 @@ const progress = Math.round((doneCount / NODES.length) * 100);
 
 const GearSVG = ({ className }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.92c.04-.34.07-.69.07-1.08s-.03-.74-.07-1.08l2.32-1.81c.21-.16.27-.46.13-.7l-2.2-3.81c-.13-.24-.42-.32-.66-.24l-2.74 1.1c-.57-.44-1.18-.81-1.85-1.09l-.42-2.92A.563.563 0 0 0 13.5 2h-4.4c-.28 0-.52.19-.56.47l-.42 2.92c-.67.28-1.28.65-1.85 1.09l-2.74-1.1c-.25-.09-.53 0-.66.24l-2.2 3.81c-.14.24-.08.54.13.7l2.32 1.81c-.04.34-.07.69-.07 1.08s.03.74.07 1.08L2.1 14.73c-.21.16-.27.46-.13.7l2.2 3.81c.13.24.42.32.66.24l2.74-1.1c.57.44 1.18.81 1.85 1.09l.42 2.92c.04.28.28.47.56.47h4.4c.28 0 .52-.19.56-.47l.42-2.92c.67-.28 1.28-.65 1.85-1.09l2.74 1.1c.25.09.53 0 .66-.24l2.2-3.81c.14-.24.08-.54-.13-.7l-2.32-1.81z"/>
+    <path d="M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.92c.04-.34.07-.69.07-1.08s-.03-.74-.07-1.08l2.32-1.81c.21-.16.27-.46.13-.7l-2.2-3.81c-.13-.24-.42-.32-.66-.24l-2.74 1.1c-.57-.44-1.18-.81-1.85-1.09l-.42-2.92A.563.563 0 0 0 13.5 2h-4.4c-.28 0-.52.19-.56.47l-.42 2.92c-.67.28-1.28.65-1.85 1.09l-2.74-1.1c-.25-.09-.53 0-.66.24l-2.2 3.81c-.14.24-.08.54.13.7l2.32 1.81c-.04.34-.07.69-.07 1.08s.03.74.07 1.08L2.1 14.73c-.21.16-.27.46-.13.7l2.2 3.81c.13.24.42.32.66.24l2.74-1.1c.57.44 1.18.81 1.85 1.09l.42 2.92c.04.28.28.47.56.47h4.4c.28 0 .52-.19.56-.47l.42-2.92c.67-.28 1.28-.65 1.85-1.09l2.74 1.1c.25.09.53 0 .66-.24l2.2-3.81c.14-.24.08-.54-.13-.7l-2.32-1.81z" />
   </svg>
 );
 
@@ -497,13 +496,13 @@ function MapNode({ node, svgWidth, svgHeight }) {
 
   const nodeClass = [
     "node-btn",
-    node.status === "done"   ? "node-done"   :
-    node.status === "active" ? "node-active" : "node-locked",
+    node.status === "done" ? "node-done" :
+      node.status === "active" ? "node-active" : "node-locked",
     node.isBoss ? "node-boss" : ""
   ].join(" ");
 
   const statusLabel = node.status === "done" ? "✓ Hoàn thành" :
-                      node.status === "active" ? "▶ Đang thực hiện" : "🔒 Chưa mở khóa";
+    node.status === "active" ? "▶ Đang thực hiện" : "🔒 Chưa mở khóa";
   const statusClass = `tooltip-status status-${node.status}`;
 
   return (
@@ -585,40 +584,40 @@ export default function TreasureMap() {
           >
             <defs>
               <linearGradient id="pathGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%"   stopColor="#22a63a" />
-                <stop offset="40%"  stopColor="#f5a800" />
-                <stop offset="60%"  stopColor="#f5a800" stopOpacity="0.6" />
+                <stop offset="0%" stopColor="#22a63a" />
+                <stop offset="40%" stopColor="#f5a800" />
+                <stop offset="60%" stopColor="#f5a800" stopOpacity="0.6" />
                 <stop offset="100%" stopColor="#6b5a44" stopOpacity="0.4" />
               </linearGradient>
 
               {/* parchment texture for map bg */}
               <filter id="paper">
-                <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="5" result="noise"/>
-                <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
-                <feBlend in="SourceGraphic" in2="grayNoise" mode="multiply" result="blend"/>
+                <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="5" result="noise" />
+                <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise" />
+                <feBlend in="SourceGraphic" in2="grayNoise" mode="multiply" result="blend" />
                 <feComponentTransfer in="blend">
-                  <feFuncA type="linear" slope="1"/>
+                  <feFuncA type="linear" slope="1" />
                 </feComponentTransfer>
               </filter>
             </defs>
 
             {/* Map background parchment */}
-            <rect x="10" y="10" width={VW-20} height={VH-20} rx="18"
+            <rect x="10" y="10" width={VW - 20} height={VH - 20} rx="18"
               fill="rgba(240,220,170,0.22)"
               stroke="rgba(120,80,20,0.25)"
               strokeWidth="3"
             />
 
             {/* Subtle grid lines */}
-            {[1,2,3,4,5,6,7,8].map(i => (
+            {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
               <line key={`v${i}`}
-                x1={i * VW / 8} y1="10" x2={i * VW / 8} y2={VH-10}
+                x1={i * VW / 8} y1="10" x2={i * VW / 8} y2={VH - 10}
                 stroke="rgba(120,80,20,0.06)" strokeWidth="1"
               />
             ))}
-            {[1,2,3,4,5].map(i => (
+            {[1, 2, 3, 4, 5].map(i => (
               <line key={`h${i}`}
-                x1="10" y1={i * VH / 5} x2={VW-10} y2={i * VH / 5}
+                x1="10" y1={i * VH / 5} x2={VW - 10} y2={i * VH / 5}
                 stroke="rgba(120,80,20,0.06)" strokeWidth="1"
               />
             ))}
@@ -633,11 +632,11 @@ export default function TreasureMap() {
             <path className="map-path" d={PATH_D} />
 
             {/* Footprint dots along path */}
-            {[0.05,0.12,0.19,0.26,0.33].map((t, i) => (
+            {[0.05, 0.12, 0.19, 0.26, 0.33].map((t, i) => (
               <circle key={i} r="3" fill="rgba(245,168,0,0.4)"
                 style={{
                   offsetPath: `path('${PATH_D}')`,
-                  offsetDistance: `${t*100}%`
+                  offsetDistance: `${t * 100}%`
                 }}
               />
             ))}
@@ -652,12 +651,12 @@ export default function TreasureMap() {
             </text>
 
             {/* Compass rose */}
-            <g transform={`translate(${VW-80}, ${VH-80})`} opacity="0.18">
-              <circle r="28" fill="none" stroke="#7a4e10" strokeWidth="1.5"/>
-              <path d="M0,-26 L4,-4 L0,-10 L-4,-4 Z" fill="#7a4e10"/>
-              <path d="M0,26 L4,4 L0,10 L-4,4 Z" fill="#7a4e1088"/>
-              <path d="M-26,0 L-4,4 L-10,0 L-4,-4 Z" fill="#7a4e1088"/>
-              <path d="M26,0 L4,4 L10,0 L4,-4 Z" fill="#7a4e1088"/>
+            <g transform={`translate(${VW - 80}, ${VH - 80})`} opacity="0.18">
+              <circle r="28" fill="none" stroke="#7a4e10" strokeWidth="1.5" />
+              <path d="M0,-26 L4,-4 L0,-10 L-4,-4 Z" fill="#7a4e10" />
+              <path d="M0,26 L4,4 L0,10 L-4,4 Z" fill="#7a4e1088" />
+              <path d="M-26,0 L-4,4 L-10,0 L-4,-4 Z" fill="#7a4e1088" />
+              <path d="M26,0 L4,4 L10,0 L4,-4 Z" fill="#7a4e1088" />
               <text y="5" textAnchor="middle" fill="#7a4e10" fontSize="9" fontFamily="Cinzel,serif" fontWeight="700">N</text>
             </g>
           </svg>

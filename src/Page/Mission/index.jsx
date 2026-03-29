@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const styles = `
-  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Nunito:wght@600;700;800;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap');
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -305,6 +305,40 @@ const styles = `
     margin-bottom: 14px;
   }
 
+  /* ===== KEY TIPS ===== */
+  .card-tips {
+    background: rgba(0,0,0,0.2);
+    border: 1px solid rgba(160,98,26,0.3);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 14px;
+  }
+
+  .card-tips-label {
+    font-size: 0.67rem;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #f5d68a;
+    margin-bottom: 7px;
+  }
+
+  .card-tip-item {
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: #c9a87a;
+    line-height: 1.55;
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(160,98,26,0.15);
+  }
+
+  .card-tip-item:last-child { border-bottom: none; }
+
+  .card-tip-item strong {
+    color: #ffe066;
+    font-weight: 800;
+  }
+
   /* Tasks checklist */
   .task-list {
     list-style: none;
@@ -434,109 +468,91 @@ const GearSVG = ({ className }) => (
 const QUESTS_DATA = [
   {
     id: 1,
-    subject: "Toán học",
-    title: "Phương trình bậc 2",
-    icon: "📐",
+    subject: "Tuần 1",
+    title: "Mật Mã Cất Cánh & Huy Hiệu Siêu Anh Hùng",
+    icon: "🚀",
     iconBg: "linear-gradient(135deg,#4facfe,#0072ff)",
-    desc: "Nắm vững công thức nghiệm và cách giải phương trình bậc hai đầy đủ, thiếu và đặc biệt.",
+    desc: "Trước khi bay vào không gian, phi hành gia cần một 'bộ nhận diện' cực ngầu và một chiếc phi thuyền vững chãi. Hãy vẽ bản thiết kế tên lửa và tự tay chế tạo một Huy hiệu Đội bay từ nắp chai hoặc giấy màu để Whisker tự tin lên đường!",
+    tips: [
+      { label: "Sáng tạo", text: "Huy hiệu là gương mặt của đội ta! Nếu muốn đội thật nhanh nhẹn, hãy vẽ thêm một tia chớp. Nếu muốn thật thông minh, hãy vẽ một ngôi sao nhỏ ở giữa nhé!" },
+      { label: "Kỹ thuật", text: "Để tên lửa không bị chao đảo khi bay, hãy lắp thêm những chiếc 'vây' ở đuôi. Bạn thử xem lắp 3 hay 4 chiếc vây thì tên lửa sẽ đứng vững hơn trên bệ phóng?" },
+    ],
     tasks: [
-      { id: "1a", text: "Đọc lý thuyết chương 3", done: true },
-      { id: "1b", text: "Làm 10 bài tập SGK", done: true },
-      { id: "1c", text: "Hoàn thành bài kiểm tra online", done: false },
-      { id: "1d", text: "Xem video giảng bài", done: false },
+      { id: "1a", text: "Vẽ bản thiết kế tên lửa của riêng mình", done: false },
+      { id: "1b", text: "Chế tạo Huy hiệu Đội bay từ nắp chai / giấy màu", done: false },
+      { id: "1c", text: "Thêm vây đuôi và kiểm tra độ cân bằng", done: false },
+      { id: "1d", text: "Chia sẻ thiết kế với cả nhóm", done: false },
     ],
     reward: "120 xu",
-    deadline: "T6, 28/03",
+    deadline: "Tuần 1",
     status: "pending",
     color: "#4facfe",
   },
   {
     id: 2,
-    subject: "Vật lý",
-    title: "Định luật Newton",
-    icon: "⚡",
+    subject: "Tuần 2",
+    title: "Kế Hoạch Hạ Cánh An Toàn",
+    icon: "🪂",
     iconBg: "linear-gradient(135deg,#f7971e,#ffd200)",
-    desc: "Hiểu và áp dụng 3 định luật Newton trong giải bài toán động lực học chất điểm.",
+    desc: "Sao Hỏa không có đường băng đâu! Nhà thám hiểm phải hạ cánh bằng thiết bị đặc biệt. Hãy chế tạo một 'Chiếc giỏ an toàn' giúp một quả trứng (đóng vai phi hành gia) không bị nứt vỡ khi rơi từ trên cao xuống đất.",
+    tips: [
+      { label: "Lực cản", text: "Hãy thử thả một tờ giấy phẳng và một tờ giấy vo tròn xem cái nào rơi chậm hơn? Một chiếc 'dù bay' khổng lồ từ túi nilon sẽ giúp Whisker lướt đi trong không khí cực êm đấy!" },
+      { label: "Giảm chấn", text: "Hãy tưởng tượng phi thuyền có những chiếc chân nhún bằng ống hút hoặc một chiếc đệm bông thật êm ở đáy. Nó sẽ giúp quả trứng không bị 'đau' khi chạm đất đâu!" },
+    ],
     tasks: [
-      { id: "2a", text: "Học thuộc 3 định luật", done: true },
-      { id: "2b", text: "Vẽ sơ đồ lực cho 5 bài", done: true },
-      { id: "2c", text: "Giải bài tập nâng cao", done: true },
-      { id: "2d", text: "Nộp bài tập nhóm", done: true },
+      { id: "2a", text: "Thử nghiệm thả giấy phẳng vs giấy vo tròn", done: false },
+      { id: "2b", text: "Chế tạo dù bay từ túi nilon", done: false },
+      { id: "2c", text: "Làm đệm giảm chấn bằng ống hút / bông", done: false },
+      { id: "2d", text: "Thử nghiệm thả trứng & ghi nhận kết quả", done: false },
     ],
     reward: "150 xu",
-    deadline: "T4, 26/03",
-    status: "done",
+    deadline: "Tuần 2",
+    status: "pending",
     color: "#f7971e",
   },
   {
     id: 3,
-    subject: "Tiếng Anh",
-    title: "Grammar: Present Perfect",
-    icon: "📖",
+    subject: "Tuần 3",
+    title: "Siêu Xe Rover Vượt Sa Mạc Bụi Đỏ",
+    icon: "🛻",
     iconBg: "linear-gradient(135deg,#11998e,#38ef7d)",
-    desc: "Ôn tập và thực hành thì Hiện tại hoàn thành với các dạng bài reading và writing.",
-    tasks: [
-      { id: "3a", text: "Học 20 từ vựng mới", done: true },
-      { id: "3b", text: "Làm grammar exercise A", done: false },
-      { id: "3c", text: "Viết đoạn văn 100 chữ", done: false },
-      { id: "3d", text: "Luyện nghe Podcast 15 phút", done: false },
+    desc: "Chúc mừng bạn đã đáp cánh thành công! Nhưng trước mắt là bề mặt Sao Hỏa đầy đá hộc và cát lún. Hãy dùng dây thun để tạo ra nguồn năng lượng 'thần kỳ' giúp xe tự chạy về phía trước!",
+    tips: [
+      { label: "Độ bám", text: "Bánh xe bằng nắp chai nhựa thường rất trơn. Hãy thử quấn thêm vài vòng dây thun quanh nắp chai để biến chúng thành 'lốp xe địa hình' siêu bám đường nhé!" },
+      { label: "Năng lượng", text: "Dây thun càng xoắn nhiều vòng thì xe càng có nhiều 'thần lực' để chạy xa. Nhưng nhớ đừng dán băng dính quá chặt vào trục xe, coi chừng xe bị 'kẹt chân' không chạy được đó!" },
     ],
-    reward: "100 xu",
-    deadline: "T7, 29/03",
+    tasks: [
+      { id: "3a", text: "Lắp bánh xe từ nắp chai nhựa", done: false },
+      { id: "3b", text: "Quấn dây thun quanh bánh tạo lốp địa hình", done: false },
+      { id: "3c", text: "Xoắn dây thun vào trục tạo năng lượng", done: false },
+      { id: "3d", text: "Thử xe trên nhiều địa hình khác nhau", done: false },
+    ],
+    reward: "130 xu",
+    deadline: "Tuần 3",
     status: "pending",
     color: "#11998e",
   },
   {
     id: 4,
-    subject: "Lập trình",
-    title: "React Hooks Cơ bản",
-    icon: "💻",
+    subject: "Tuần 4",
+    title: "Cánh Tay Robot Săn Tìm Đá Báu",
+    icon: "🦾",
     iconBg: "linear-gradient(135deg,#667eea,#764ba2)",
-    desc: "Tìm hiểu useState, useEffect và useRef. Xây dựng một ứng dụng To-do nhỏ bằng React.",
+    desc: "Kho báu 'Viên đá Năng lượng' đang nằm sâu trong hốc đá hẹp. Không thể chạm tay trực tiếp vì đá rất nóng! Hãy chế tạo một Cánh tay gắp từ xa bằng bìa carton và dây chỉ để thu thập đá báu về trạm điều khiển.",
+    tips: [
+      { label: "Khớp nối", text: "Hãy nhìn vào ngón tay của mình: khi kéo gân tay, ngón tay sẽ gập lại. Bạn có thể dùng dây chỉ xỏ qua ống hút để làm 'sợi gân' giúp các ngón tay bìa cứng co duỗi khéo léo đấy!" },
+      { label: "Mẹo gắp", text: "Để kẹp đá không bị trượt, hãy dán một chút băng dính hai mặt hoặc miếng nhám vào đầu kẹp. Đảm bảo đá báu sẽ dính chặt như có phép thuật!" },
+    ],
     tasks: [
-      { id: "4a", text: "Đọc docs useState", done: true },
-      { id: "4b", text: "Thực hành useEffect", done: true },
-      { id: "4c", text: "Build To-do app", done: false },
-      { id: "4d", text: "Code review với mentor", done: false },
+      { id: "4a", text: "Cắt bìa carton tạo hình cánh tay và ngón", done: false },
+      { id: "4b", text: "Xỏ dây chỉ qua ống hút làm 'sợi gân'", done: false },
+      { id: "4c", text: "Dán băng dính hai mặt vào đầu kẹp", done: false },
+      { id: "4d", text: "Thử gắp và thu thập 'đá báu' thành công", done: false },
     ],
     reward: "200 xu",
-    deadline: "CN, 30/03",
+    deadline: "Tuần 4",
     status: "pending",
     color: "#764ba2",
-  },
-  {
-    id: 5,
-    subject: "Hóa học",
-    title: "Phản ứng Oxi hóa – Khử",
-    icon: "🧪",
-    iconBg: "linear-gradient(135deg,#f953c6,#b91d73)",
-    desc: "Xác định số oxi hóa và cân bằng phương trình theo phương pháp electron.",
-    tasks: [
-      { id: "5a", text: "Học lý thuyết cân bằng e⁻", done: false },
-      { id: "5b", text: "Làm 8 bài cân bằng PTHH", done: false },
-      { id: "5c", text: "Bài kiểm tra 15 phút", done: false },
-    ],
-    reward: "90 xu",
-    deadline: "T2, 24/03",
-    status: "overdue",
-    color: "#f953c6",
-  },
-  {
-    id: 6,
-    subject: "Lịch sử",
-    title: "Cách mạng Tháng Tám",
-    icon: "🏛️",
-    iconBg: "linear-gradient(135deg,#c94b4b,#4b134f)",
-    desc: "Nắm vững diễn biến, ý nghĩa và bài học lịch sử của Cách mạng Tháng Tám 1945.",
-    tasks: [
-      { id: "6a", text: "Đọc SGK trang 45–60", done: false },
-      { id: "6b", text: "Lập bảng niên biểu sự kiện", done: false },
-      { id: "6c", text: "Viết luận điểm 200 chữ", done: false },
-    ],
-    reward: "80 xu",
-    deadline: "T5, 27/03",
-    status: "locked",
-    color: "#c94b4b",
   },
 ];
 
@@ -590,6 +606,18 @@ function QuestCard({ quest, animDelay }) {
 
       {/* Description */}
       <p className="card-desc">{quest.desc}</p>
+
+      {/* Whisker Tips */}
+      {quest.tips && quest.tips.length > 0 && (
+        <div className="card-tips">
+          <div className="card-tips-label">🐱 Bí kíp của Whisker</div>
+          {quest.tips.map((tip, i) => (
+            <div key={i} className="card-tip-item">
+              <strong>{tip.label}:</strong> {tip.text}
+            </div>
+          ))}
+        </div>
+      )}
 
       {/* Task checklist */}
       <ul className="task-list">
@@ -648,9 +676,9 @@ export default function WeeklyQuest() {
 
           {/* HEADER */}
           <div className="wq-header">
-            <h1>📋 Nhiệm Vụ Học Tập</h1>
-            <p className="sub">Hành trình chinh phục tri thức tuần này</p>
-            <span className="week-badge">📅 Tuần 4 · Tháng 3 · 2026</span>
+            <h1>🚀 Nhiệm Vụ Thám Hiểm Sao Hỏa</h1>
+            <p className="sub">Hành trình cùng Whisker chinh phục vũ trụ</p>
+            <span className="week-badge">🌌 4 Tuần · Tháng 3 · 2026</span>
           </div>
 
           {/* PROGRESS PANEL */}
@@ -661,9 +689,9 @@ export default function WeeklyQuest() {
             <GearSVG className="gc gc-br" />
             <div className="progress-top">
               <span className="progress-top-label">
-                🏆 Tổng tiến độ tuần: {doneTasks}/{totalTasks} nhiệm vụ nhỏ
+                🏆 Tổng tiến độ: {doneTasks}/{totalTasks} nhiệm vụ nhỏ
               </span>
-              <span className="progress-top-count">{doneQuests}/{QUESTS_DATA.length} môn hoàn thành · {pct}%</span>
+              <span className="progress-top-count">{doneQuests}/{QUESTS_DATA.length} tuần hoàn thành · {pct}%</span>
             </div>
             <div className="progress-track">
               <div className="progress-fill" style={{ width: `${pct}%` }} />
