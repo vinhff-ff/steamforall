@@ -11,20 +11,24 @@ import Mission from './Page/Mission/index.jsx';
 import Game from './Page/Game/index.jsx';
 import Level from './Page/Level/index.jsx';
 import Notfound from './Page/Notfound/index.jsx';
+import Chatbot from './Custom/Chatbot';
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/dien-dan" element={<DienDanPage />} />
-      <Route path="/login" element={<LoginPanel />} />
-      <Route path="/register" element={<RegisterPanel />} />
-      <Route path="/treasure" element={<Map />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/mission" element={<Mission />} />
-      <Route path="/game" element={<Game />} />
-      <Route path="/level" element={<Level />} />
-      <Route path="/notfound" element={<Notfound />} />
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/dien-dan" element={<DienDanPage />} />
+        <Route path="/login" element={<LoginPanel />} />
+        <Route path="/register" element={<RegisterPanel />} />
+        <Route path="/treasure" element={<Map />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/mission" element={<Mission />} />
+        <Route path="/game" element={<Game />} />
+        <Route path="/level" element={<Level />} />
+        <Route path="/notfound" element={<Notfound />} />
+      </Routes>
+      <Chatbot />
+    </>
   );
 }
 
