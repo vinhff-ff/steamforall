@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenerativeAI } from '@google/generative-ai';
+import laban from '../assets/laban.png';
 import '../Style/chatbot.scss';
 
 const Chatbot = () => {
@@ -7,8 +8,8 @@ const Chatbot = () => {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: 'Xin chào! 👋 Tôi là trợ lý ảo. Hỏi tôi bất cứ điều gì bạn muốn biết.',
-      sender: 'bot'
+      text: 'Xin chào! 👋 Tôi là hoa tiêu. Hỏi tôi bất cứ điều gì bạn muốn biết.',
+      sender: 'Hoa tiêu'
     }
   ]);
   const [inputValue, setInputValue] = useState('');
@@ -52,7 +53,7 @@ const Chatbot = () => {
           {
             id: Date.now(),
             text: '⚠️ Đây là bản demo chưa thể chat',
-            sender: 'bot'
+            sender: 'Hoa tiêu'
           }
         ]);
         setLoading(false);
@@ -66,7 +67,7 @@ const Chatbot = () => {
       const botMessage = {
         id: Date.now(),
         text: text,
-        sender: 'bot'
+        sender: 'Hoa tiêu'
       };
 
       setMessages((prev) => [...prev, botMessage]);
@@ -77,7 +78,7 @@ const Chatbot = () => {
         {
           id: Date.now(),
           text: `❌ Lỗi: ${error.message}`,
-          sender: 'bot'
+          sender: ' Hoa tiêu'
         }
       ]);
     } finally {
@@ -98,16 +99,16 @@ const Chatbot = () => {
       <button
         className="chatbot-button"
         onClick={() => setIsOpen(!isOpen)}
-        title="Trợ lý ảo"
+        title="Chat với hoa tiêu"
       >
-        💬
+        <img src={laban} alt="Hoa tiêu" />
       </button>
 
       {/* Chat Window */}
       {isOpen && (
         <div className="chatbot-window">
           <div className="chatbot-header">
-            <h3>Trợ lý ảo</h3>
+            <h3>Hoa tiêu</h3>
             <button
               className="chatbot-close"
               onClick={() => setIsOpen(false)}
